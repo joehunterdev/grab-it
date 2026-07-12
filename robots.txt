@@ -1,0 +1,14 @@
+# Grab It - Screen Recorder
+# Robots.txt for SEO
+
+User-agent: *
+Allow: /
+Allow: /public/
+Allow: /src/
+
+Disallow: /.git/
+Disallow: /.gitignore
+Disallow: /.vscode/
+Disallow: /.github/
+
+Sitemap: https://grab-it.joehunter.dev/sitemap.xml

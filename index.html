@@ -3,26 +3,65 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grab It - Screen Recording Tool | Joe Hunter</title>
-    <meta name="description" content="Grab It - A fast, lightweight screen recorder that captures your screen and system audio in MP4 format. No installation needed, runs entirely in your browser." />
-    <meta name="keywords" content="screen recorder, screen capture, video recording, MP4, no installation, browser-based, free tool" />
+    <title>Grab It - Free Browser-Based Screen Recorder | Joe Hunter</title>
+    <meta name="description" content="Grab It: Free, lightweight screen recorder. Capture your screen and system audio in MP4 format. No installation. No sign-up. Runs entirely in your browser. iPhone & all device compatible." />
+    <meta name="keywords" content="screen recorder, screen capture, video recording, MP4, browser-based, free tool, no installation, screen recording software, video capture, screen sharing" />
+    <meta name="author" content="Joe Hunter" />
+    <meta name="creator" content="Joe Hunter" />
+    <link rel="canonical" href="https://grab-it.joehunter.dev/" />
     
-    <!-- Open Graph -->
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Grab It" />
     <meta property="og:url" content="https://grab-it.joehunter.dev/" />
-    <meta property="og:title" content="Grab It - Screen Recording Tool" />
-    <meta property="og:description" content="Fast, lightweight screen recorder. Capture your screen and system audio in MP4 format." />
+    <meta property="og:title" content="Grab It - Free Browser-Based Screen Recorder" />
+    <meta property="og:description" content="Capture your screen and system audio instantly. No installation, no sign-up. Works on Windows, Mac, Linux, and iPhone." />
     <meta property="og:image" content="https://grab-it.joehunter.dev/public/logo_75.png" />
     <meta property="og:image:width" content="75" />
     <meta property="og:image:height" content="75" />
+    
+    <!-- Twitter / X -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://grab-it.joehunter.dev/" />
+    <meta property="twitter:title" content="Grab It - Free Screen Recording Tool" />
+    <meta property="twitter:description" content="Record your screen and system audio instantly. Browser-based, no installation needed." />
+    <meta property="twitter:image" content="https://grab-it.joehunter.dev/public/logo_75.png" />
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,600;0,900;1,200&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Sitemap & SEO -->
+    <link rel="sitemap" href="https://grab-it.joehunter.dev/sitemap.xml" />
+    
     <link rel="icon" type="image/png" href="public/logo_75.png" />
     <link rel="shortcut icon" href="public/favicon.jpg" />
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Grab It",
+        "description": "Free browser-based screen recorder. Capture your screen and system audio in MP4 format.",
+        "url": "https://grab-it.joehunter.dev/",
+        "applicationCategory": "Multimedia",
+        "operatingSystem": "Windows, macOS, Linux, iOS",
+        "browserRequirements": "Requires JavaScript enabled",
+        "creator": {
+            "@type": "Person",
+            "name": "Joe Hunter",
+            "url": "https://joehunter.es"
+        },
+        "inLanguage": "en",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
     <style>
         * {
             margin: 0;
@@ -245,6 +284,31 @@
             cursor: not-allowed;
         }
 
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300d4ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            background-size: 20px;
+            padding-right: 36px;
+        }
+
+        select:hover {
+            border-color: rgba(0, 212, 255, 0.5);
+            background-color: rgba(0, 212, 255, 0.15);
+        }
+
+        select:focus {
+            outline: none;
+            border-color: rgba(0, 212, 255, 0.8);
+            box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
+        }
+
+        select option {
+            background: #1a1f3a;
+            color: #00d4ff;
+        }
+
         .setup-section {
             display: flex;
             flex-direction: column;
@@ -464,8 +528,18 @@
                     <button id="download">⬇️ Download Video</button>
                 </div>
 
+                <div style="margin-bottom: 16px;">
+                    <label for="formatSelect" style="color: #a0a0a0; font-size: 13px; display: block; margin-bottom: 8px;">File Format:</label>
+                    <select id="formatSelect" style="width: 100%; padding: 10px; background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3); color: #00d4ff; border-radius: 0; font-family: 'Inter', sans-serif; font-size: 13px;">
+                        <option value="mp4">MP4 (Recommended for iPhone)</option>
+                        <option value="mov">MOV (QuickTime - iPhone/Mac)</option>
+                    </select>
+                </div>
+
                 <p style="color: #808080; font-size: 13px;">
                     💡 Tip: Your recording is saved locally in your browser. No data is sent to servers.
+                    <br/>
+                    📱 MOV format works best with iPhone/Mac. MP4 works everywhere.
                 </p>
             </div>
 
@@ -500,7 +574,7 @@
                 <div class="step">
                     <div class="step-number">5</div>
                     <h3>Download Your Video</h3>
-                    <p>Right-click the video player and select "Save video as" to download your MP4 file.</p>
+                    <p>Click the "Download Video" button to save your MP4 file with an automatic timestamp.</p>
                 </div>
             </div>
         </div>
@@ -541,9 +615,24 @@
     </div>
 
     <footer>
-        Made with 👨‍🚀 by <a href="https://joehunter.es/portfolio">Joe Hunter</a> • 
-        <a href="https://github.com/joehunterdev/grab-it">View on GitHub</a> • 
-        <a href="https://joehunter.es/portfolio">Portfolio</a>
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <p style="margin-bottom: 16px;">
+                <strong>Grab It</strong> is a free, open-source screen recording tool built with modern web standards. 
+                <a href="https://github.com/joehunterdev/grab-it" style="color: #00d4ff;">View on GitHub</a>
+            </p>
+            <p style="margin-bottom: 20px; font-size: 12px; color: #505050;">
+                Made with ❤️ by <a href="https://joehunter.es">Joe Hunter</a> • 
+                Full-stack developer based in Málaga, Spain • 
+                <a href="https://joehunter.es/contact">Get in touch</a> • 
+                <a href="https://github.com/joehunterdev">GitHub Profile</a>
+            </p>
+            <p style="font-size: 12px; color: #404040; border-top: 1px solid rgba(0, 212, 255, 0.1); padding-top: 16px;">
+                &copy; 2026 Joe Hunter. All rights reserved. | 
+                <a href="https://grab-it.joehunter.dev/sitemap.xml">Sitemap</a> | 
+                <a href="https://grab-it.joehunter.dev/robots.txt">Robots.txt</a> | 
+                Licensed under <a href="https://github.com/joehunterdev/grab-it/blob/main/LICENSE">MIT License</a>
+            </p>
+        </div>
     </footer>
 
     <script src="src/index.js"></script>
