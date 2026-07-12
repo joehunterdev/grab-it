@@ -418,6 +418,22 @@
             border: 1px solid rgba(0, 212, 255, 0.3);
             display: block;
         }
+
+        #download {
+            background: linear-gradient(135deg, #9d4edd 0%, #7209b7 100%);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(146, 13, 221, 0.3);
+            display: none;
+        }
+
+        #download:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(146, 13, 221, 0.5);
+        }
+
+        #download:active:not(:disabled) {
+            transform: translateY(-1px);
+        }
     </style>
 </head>
 
@@ -445,6 +461,7 @@
                 <div class="button-group">
                     <button id="start">🔴 Start Recording</button>
                     <button id="stop" disabled>⏹ Stop Recording</button>
+                    <button id="download">⬇️ Download Video</button>
                 </div>
 
                 <p style="color: #808080; font-size: 13px;">
